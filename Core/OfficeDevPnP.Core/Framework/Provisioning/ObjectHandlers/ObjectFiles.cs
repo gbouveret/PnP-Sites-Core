@@ -44,6 +44,8 @@ namespace OfficeDevPnP.Core.Framework.Provisioning.ObjectHandlers
                 var directoryFiles = new List<Model.File>();
                 foreach (var directory in template.Directories)
                 {
+                    // FIX
+                    directory.Src = parser.ParseString(directory.Src);
                     var metadataProperties = directory.GetMetadataProperties();
                     directoryFiles.AddRange(directory.GetDirectoryFiles(metadataProperties));
                 }
